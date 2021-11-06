@@ -38,8 +38,6 @@ export default class MascotasController {
   }
 
   public async update({params,request,response}: HttpContextContract) {
-
-
     await Mascota.updateOne({_id:params.id},{$set:{
       nombre: request.input('nombre'),
       raza:request.input('raza'),
@@ -49,5 +47,8 @@ export default class MascotasController {
     return response.redirect().toRoute('mascotas.index')
   }
 
-  public async destroy({}: HttpContextContract) {}
+  public async destroy({params, response}: HttpContextContract) {
+    await Mascota.deleteOne({_id:params.id})
+    return response.redirect().toRoute('mascotas.index')
+  }
 }

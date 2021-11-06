@@ -3,7 +3,7 @@
 @set('title', 'Mascota')
 
 @section('body')
-  <section class="hero is-warning">
+  <section class="hero is-warning is-small">
     <div class="hero-body">
       <p class="title">
         Mascota
@@ -49,9 +49,11 @@
                   <a href="{{ route('mascotas.edit' ,{ id:mascota.id }) }}" class="button is-warning">
                     Editar
                   </a>
-                  <a href="" class="button is-danger">
-                    Eliminar
-                  </a>
+                  <form action="{{ route('mascotas.eliminar', {id:mascota.id}) }}" method="post">
+                    <button type="submit" class="button is-danger">
+                      Eliminar
+                    </button>
+                  </form>
                 </td>
               </tr>
             @end

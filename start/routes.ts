@@ -27,3 +27,4 @@ Route.get('/', async ({ view }) => {
 //Route.get('/mascotas','MascotasController.index')
 Route.resource('/mascotas','MascotasController')
 Route.post('/update/:id', 'MascotasController.update').as('mascotas.actualizar')
+Route.post('/delete/:id','MascotasController.destroy').as('mascotas.eliminar')
