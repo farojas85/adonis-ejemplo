@@ -1,0 +1,63 @@
+@layout('layouts/main')
+
+@set('title', 'Mascota')
+
+@section('body')
+  <section class="hero is-warning">
+    <div class="hero-body">
+      <p class="title">
+        Mascota
+      </p>
+      <p class="subtitle">
+        Listado de Mascotas
+      </p>
+    </div>
+  </section>
+  <div class="container">
+    <div class="columns">
+      <div class="column">
+        <a href="{{ route('mascotas.create') }}" class="button is-info">
+          Nueva Mascota
+        </a>
+        <table class="table is-fullwidth">
+          <thead class="">
+            <tr>
+              <th>Id</th>
+              <th>Nombre</th>
+              <th>Raza</th>
+              <th>Tipo</th>
+              <th>Acciones</th>
+            </tr>
+          </thead>
+          <tfoot>
+            <tr>
+              <th>Id</th>
+              <th>Nombre</th>
+              <th>Raza</th>
+              <th>Tipo</th>
+              <th>Acciones</th>
+            </tr>
+          </tfoot>
+          <tbody>
+            @each((mascota,index) in mascotas)
+              <tr>
+                <td>{{ mascota.id }}</td>
+                <td>{{ mascota.nombre }}</td>
+                <td>{{ mascota.raza }}</td>
+                <td>{{ mascota.tipo }}</td>
+                <td>
+                  <a href="{{ route('mascotas.edit' ,{ id:mascota.id }) }}" class="button is-warning">
+                    Editar
+                  </a>
+                  <a href="" class="button is-danger">
+                    Eliminar
+                  </a>
+                </td>
+              </tr>
+            @end
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+@end

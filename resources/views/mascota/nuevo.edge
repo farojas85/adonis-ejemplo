@@ -1,0 +1,62 @@
+@layout('layouts/main')
+
+@set('title', 'Nueva Mascota')
+
+@section('body')
+  <section class="hero is-warning is-small">
+    <div class="hero-body">
+      <p class="title">
+        Mascota
+      </p>
+      <p class="subtitle">
+        Registrar Nueva Mascota
+      </p>
+    </div>
+  </section>
+  <div class="container">
+    <div class="columns">
+      <div class="column">
+        <form action="{{ route('mascotas.store') }}" method="POST">
+          <div class="columns">
+            <div class="column is-two-fifths">
+              <div class="field">
+                <label class="label">Nombre</label>
+                <div class="control">
+                  <input class="input" type="text" placeholder="Ingrese Nombre" id="nombre" name="nombre">
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="columns">
+            <div class="column is-two-fifths">
+              <div class="field">
+                <label class="label">Raza</label>
+                <div class="control">
+                  <input class="input" type="text" placeholder="Ingrese Nombre" id="raza" name="raza">
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="columns">
+            <div class="column is-two-fifths">
+              <div class="field">
+                <label class="label">Tipo</label>
+                <div class="control">
+                  <input class="input" type="text" placeholder="Ingrese Nombre" id="tipo" name="tipo">
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="colums">
+            <div class="column is-two-fifths">
+              <a href="{{ route('mascotas.index') }}" class="button is-danger">
+                Cancelar
+              </a>
+              <button class="button is-success" type="submit">Guardar</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+@end
